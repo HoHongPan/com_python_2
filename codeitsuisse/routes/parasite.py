@@ -32,7 +32,51 @@ def parasite():
             if int(a[int(b[n][0])][int(b[n][2])]) != 1:
                 result = result + "-1"
             else:
-                result = result + "0"
+                list = [[int(b[n][0]),int(b[n][2]),0]]
+                rows, cols = (columns_a, rows_a)
+                looked = [[0]*cols]*rows
+                looked [int(b[n][0])][int(b[n][2])] = 1
+                flag = 0
+                while len(list) != 0:
+                    if list[0][0] != 0:
+                        if int(a[list[0][0]-1][list[0][1]]) == 1:
+                            if looked[list[0][0]-1][list[0][1]] == 0:
+                                looked[list[0][0] - 1][ list[0][1]] = 1
+                                list.append([list[0][0]-1,list[0][1],list[0][2]+1])
+                        elif int(a[list[0][0]-1][list[0][1]]) == 3:
+                            result = result + str(list[0][2]+1)
+                            flag = 1
+                            break
+                    if list[0][0] != rows_a-1:
+                        if int(a[list[0][0] + 1][list[0][1]]) == 1:
+                            if looked[list[0][0]+1][list[0][1]] == 0:
+                                looked[list[0][0] + 1][list[0][1]] = 1
+                                list.append([list[0][0] + 1, list[0][1], list[0][2] + 1])
+                        elif int(a[list[0][0] + 1][list[0][1]]) == 3:
+                            result = result + str(list[0][2] + 1)
+                            flag = 1
+                            break
+                    if list[0][1] != 0:
+                        if int(a[list[0][0]][list[0][1]-1]) == 1:
+                            if looked[list[0][0]][list[0][1]-1] == 0:
+                                looked[list[0][0]][ list[0][1]-1] = 1
+                                list.append([list[0][0]-1,list[0][1],list[0][2]+1])
+                        elif int(a[list[0][0]][list[0][1]-1]) == 3:
+                            result = result + str(list[0][2]+1)
+                            flag = 1
+                            break
+                    if list[0][1] != columns_a-1:
+                        if int(a[list[0][0]][list[0][1] + 1]) == 1:
+                            if looked[list[0][0]][list[0][1]+1] == 0:
+                                looked[list[0][0]][ list[0][1]+1] = 1
+                                list.append([list[0][0], list[0][1] + 1, list[0][2] + 1])
+                        elif int(a[list[0][0] ][list[0][1]+ 1]) == 3:
+                            result = result + str(list[0][2] + 1)
+                            flag = 1
+                            break
+                    del list[0]
+                if flag == 0:
+                    result = result + "-1"
             if n < rows_b-1:
                 result = result + ", "
         else:
