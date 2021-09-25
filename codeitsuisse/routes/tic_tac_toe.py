@@ -1,6 +1,6 @@
 import logging
 import json
-# import sseclient
+from aiohttp_sse_client import client as sse_client
 import pprint
 
 from flask import request, jsonify
@@ -23,7 +23,12 @@ def tic_tac_toe():
     url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/' + id
     logging.info("uri {}".format(url))
     response = with_urllib3(url)
-#    client = sseclint.SSEClient(respone)
-#    for event in client.event():
-#        pprint.pprint(json.loads(event.data))
+    async with sse_client.EventSource(
+        url
+    ) as event_source:
+        try:
+            async for event in event_source:
+                print(event)
+        except ConnectionError:
+            pass
     return json.dumps(url)
