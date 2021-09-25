@@ -14,7 +14,7 @@ def parasite():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
     result = "[\n"
-    for i in range(2):
+    for i in range(20):
         result = result + "  {\n"
         c = request.get_json()[i].get("room")
         logging.info("data sent for evaluation {}".format(c))
