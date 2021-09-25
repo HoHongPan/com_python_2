@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 def parasite():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    for i in range(1,10):
+    for i in range(20):
         result = request.get_json()[i].get("room")
         logging.info("data sent for evaluation {}".format(result))
         a = request.get_json()[i].get("grid")
