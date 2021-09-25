@@ -36,8 +36,11 @@ def parasite():
             if n < rows_b-1:
                 result = result + ", "
         else:
-            result = result + "},\n "
+            result = result + "},\n"
 
+        result = result + "    \"p2\": -1,\n"
+        result = result + "    \"p3\": -1,\n"
+        result = result + "    \"p4\": -1,\n"
         result = result + "  }\n"
     else:
         result = result + "]"
