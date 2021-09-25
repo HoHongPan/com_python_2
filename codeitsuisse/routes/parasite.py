@@ -17,5 +17,5 @@ def parasite():
     logging.info("data sent for evaluation {}".format(result))
     a = request.get_json()[0].get("grid")
     logging.info("data sent for evaluation {}".format(a))
-    return result
+    return "result"
 
