@@ -22,4 +22,5 @@ def tic_tac_toe():
     url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/' + id
     logging.info("uri {}".format(url))
     response = with_urllib3(url)
+    logging.info("information {}".format(response.read()))
     return json.dumps(url)
