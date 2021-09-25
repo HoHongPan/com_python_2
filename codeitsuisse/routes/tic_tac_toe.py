@@ -23,12 +23,4 @@ def tic_tac_toe():
     url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/' + id
     logging.info("uri {}".format(url))
     response = with_urllib3(url)
-    async with sse_client.EventSource(
-        url
-    ) as event_source:
-        try:
-            async for event in event_source:
-                print(event)
-        except ConnectionError:
-            pass
     return json.dumps(url)
