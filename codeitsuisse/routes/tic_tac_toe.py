@@ -1,6 +1,5 @@
 import logging
 import json
-from aiohttp_sse_client import client as sse_client
 import pprint
 
 from flask import request, jsonify
