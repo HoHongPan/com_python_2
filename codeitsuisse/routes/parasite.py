@@ -29,10 +29,22 @@ def parasite():
         result = result + "    \"p1\": { "
         for n in range(rows_b):
             result = result +"\""+ b[n] + "\":  "
-            if int(a[int(b[n][0])][int(b[n][2])]) != 1:
+            if b[n][1] == ',':
+                i = int(b[n][0])
+                if len(b[n]) == 3:
+                    j = int(b[n][2])
+                else:
+                    j = int(b[n][2])*10 + int(b[n][3])
+            else:
+                i = int(b[n][0])* 10 + int(b[n][1])
+                if len(b[n]) == 4:
+                    j = int(b[n][3])
+                else:
+                    j = int(b[n][3]) * 10 + int(b[n][4])
+            if int(a[i][j]) != 1:
                 result = result + "-1"
             else:
-                list = [[int(b[n][0]),int(b[n][2]),0]]
+                list = [[i,j,0]]
                 rows, cols = (rows_a, columns_a)
                 looked = [[0]*cols]*rows
                 looked [int(b[n][0])][int(b[n][2])] = 1
