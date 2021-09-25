@@ -1,18 +1,13 @@
 import logging
 import json
 import pprint
+from websocket import create_connection
 
 from flask import request, jsonify
 
 from codeitsuisse import app
 
 logger = logging.getLogger(__name__)
-
-def with_urllib3(url):
-    import urllib3
-    http = urllib3.PoolManager()
-    return http.request('GET', url, preload_content=False)
-
 
 @app.route('/tic-tac-toe', methods=['POST'])
 def tic_tac_toe():
@@ -21,6 +16,9 @@ def tic_tac_toe():
     id = data.get("battleId")
     url = 'https://cis2021-arena.herokuapp.com/tic-tac-toe/start/' + id
     logging.info("uri {}".format(url))
-    response = with_urllib3(url)
-    logging.info("information {}".format(response.read()))
+    ws = create_connection(url)
+    print("Receiving...")
+    result = ws.recv()
+    print("Received '%s'" % result)
+    ws.close()
     return json.dumps(url)
