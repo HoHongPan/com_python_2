@@ -47,7 +47,7 @@ def parasite():
                 list = [[i,j,0]]
                 rows, cols = (rows_a, columns_a)
                 looked = [[0]*cols]*rows
-                looked [int(b[n][0])][int(b[n][2])] = 1
+                looked [i][j] = 1
                 flag = 0
                 while len(list) != 0:
                     if list[0][0] != 0:
