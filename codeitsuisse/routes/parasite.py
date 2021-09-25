@@ -13,9 +13,9 @@ logger = logging.getLogger(__name__)
 def parasite():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    result = data.get("room")
+    result = request.get_json()[0].get("room")
     logging.info("data sent for evaluation {}".format(result))
-    a = data.get("room")
+    result = request.get_json()[0].get("grid")
     logging.info("data sent for evaluation {}".format(a))
     return result
 
