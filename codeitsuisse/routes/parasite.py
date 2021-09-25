@@ -33,7 +33,7 @@ def parasite():
                 result = result + "-1"
             else:
                 list = [[int(b[n][0]),int(b[n][2]),0]]
-                rows, cols = (columns_a, rows_a)
+                rows, cols = (rows_a, columns_a)
                 looked = [[0]*cols]*rows
                 looked [int(b[n][0])][int(b[n][2])] = 1
                 flag = 0
