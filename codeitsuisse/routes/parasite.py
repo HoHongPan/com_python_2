@@ -50,7 +50,7 @@ def parasite():
                 looked [i][j] = 1
                 flag = 0
                 while len(list) != 0:
-                    if list[0][0] != 0:
+                    if list[0][0] > 0:
                         if int(a[list[0][0]-1][list[0][1]]) == 1:
                             if looked[list[0][0]-1][list[0][1]] == 0:
                                 looked[list[0][0] - 1][ list[0][1]] = 1
@@ -59,7 +59,7 @@ def parasite():
                             result = result + str(list[0][2]+1)
                             flag = 1
                             break
-                    if list[0][0] != rows_a-1:
+                    if list[0][0] < rows_a-1:
                         if int(a[list[0][0] + 1][list[0][1]]) == 1:
                             if looked[list[0][0]+1][list[0][1]] == 0:
                                 looked[list[0][0] + 1][list[0][1]] = 1
@@ -68,7 +68,7 @@ def parasite():
                             result = result + str(list[0][2] + 1)
                             flag = 1
                             break
-                    if list[0][1] != 0:
+                    if list[0][1] > 0:
                         if int(a[list[0][0]][list[0][1]-1]) == 1:
                             if looked[list[0][0]][list[0][1]-1] == 0:
                                 looked[list[0][0]][ list[0][1]-1] = 1
@@ -77,7 +77,7 @@ def parasite():
                             result = result + str(list[0][2]+1)
                             flag = 1
                             break
-                    if list[0][1] != columns_a-1:
+                    if list[0][1] < columns_a-1:
                         if int(a[list[0][0]][list[0][1] + 1]) == 1:
                             if looked[list[0][0]][list[0][1]+1] == 0:
                                 looked[list[0][0]][ list[0][1]+1] = 1
