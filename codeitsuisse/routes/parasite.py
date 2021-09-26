@@ -104,6 +104,6 @@ def parasite():
     else:
         result = result + "]"
         print (result)
-
+        
     return result
 
