@@ -13,12 +13,12 @@ logger = logging.getLogger(__name__)
 def parasite():
     data = request.get_json()
     logging.info("data sent for evaluation {}".format(data))
-    result = "[\n"
-    for i in range(20):
-        result = result + "  {\n"
+    result = "["
+    for i in range(2):
+        result = result + "{"
         c = request.get_json()[i].get("room")
         logging.info("data sent for evaluation {}".format(c))
-        result = result + "    \"room\": " + str(c) + ",\n"
+        result = result + "\"room\":" + str(c) + ","
         a = request.get_json()[i].get("grid")
         logging.info("data sent for evaluation {}".format(a))
         rows_a = len(a)
@@ -26,7 +26,7 @@ def parasite():
         b = request.get_json()[i].get("interestedIndividuals")
         logging.info("data sent for evaluation {}".format(b))
         rows_b = len(b)
-        result = result + "    \"p1\": { "
+        result = result + "\"p1\": { "
         for n in range(rows_b):
             result = result +"\""+ b[n] + "\": "
             if b[n][1] == ',':
@@ -87,8 +87,6 @@ def parasite():
                             flag = 1
                             break
                     del list[0]
-                logging.info("data sent for evaluation {}".format(list))
-                logging.info("data sent for evaluation {}".format(flag))
                 logging.info("data sent for evaluation {}".format(i))
                 logging.info("data sent for evaluation {}".format(j))
                 logging.info("data sent for evaluation {}".format(looked))
@@ -97,12 +95,12 @@ def parasite():
             if n < rows_b-1:
                 result = result + ", "
         else:
-            result = result + "},\n"
+            result = result + "},"
 
-        result = result + "    \"p2\": -1,\n"
-        result = result + "    \"p3\": -1,\n"
-        result = result + "    \"p4\": -1,\n"
-        result = result + "  }\n"
+        result = result + "\"p2\": -1,"
+        result = result + "\"p3\": -1,"
+        result = result + "\"p4\": -1,"
+        result = result + "  }"
     else:
         result = result + "]"
         print (result)
