@@ -87,7 +87,7 @@ def parasite():
                             flag = 1
                             break
                     del list[0]
-                    logging.info("data sent for evaluation {}".format(list))
+                logging.info("data sent for evaluation {}".format(list))
                 if flag == 0:
                     result = result + "-1"
             if n < rows_b-1:
