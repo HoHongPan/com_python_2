@@ -18,7 +18,7 @@ def parasite():
         result = result + "  {\n"
         c = request.get_json()[i].get("room")
         logging.info("data sent for evaluation {}".format(c))
-        result = result + "    \"room\":" + str(c) + ", "
+        result = result + "    \"room\":" + str(c) + ", \n"
         a = request.get_json()[i].get("grid")
         logging.info("data sent for evaluation {}".format(a))
         rows_a = len(a)
@@ -28,7 +28,7 @@ def parasite():
         rows_b = len(b)
         result = result + "    \"p1\": { "
         for n in range(rows_b):
-            result = result +"\""+ b[n] + "\": "
+            result = result +"\""+ b[n] + "\":  "
             if b[n][1] == ',':
                 i = int(b[n][0])
                 if len(b[n]) == 3:
@@ -97,12 +97,12 @@ def parasite():
         else:
             result = result + "},\n"
 
-        result = result + "  \"p2\": -1,\n"
-        result = result + "  \"p3\": -1,\n"
-        result = result + "  \"p4\": -1,\n"
-        result = result + "    }\n"
+        result = result + "    \"p2\": -1,\n"
+        result = result + "    \"p3\": -1,\n"
+        result = result + "    \"p4\": -1,\n"
+        result = result + "  }\n"
     else:
-        result = result + "]"
+        result = result + "]\n"
         print (result)
 
     return result
