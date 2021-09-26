@@ -17,11 +17,14 @@ def parasite():
     for i in range(20):
         result = result + "  {\n"
         c = request.get_json()[i].get("room")
+        logging.info("data sent for evaluation {}".format(c))
         result = result + "    \"room\": " + str(c) + ",\n"
         a = request.get_json()[i].get("grid")
+        logging.info("data sent for evaluation {}".format(a))
         rows_a = len(a)
         columns_a = len(a[0])
         b = request.get_json()[i].get("interestedIndividuals")
+        logging.info("data sent for evaluation {}".format(b))
         rows_b = len(b)
         result = result + "    \"p1\": { "
         for n in range(rows_b):
@@ -84,6 +87,7 @@ def parasite():
                             flag = 1
                             break
                     del list[0]
+                    logging.info("data sent for evaluation {}".format(len(list)))
                 if flag == 0:
                     result = result + "-1"
             if n < rows_b-1:
