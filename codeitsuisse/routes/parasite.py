@@ -46,7 +46,7 @@ def parasite():
             else:
                 list = [[i,j,0]]
                 rows, cols = (rows_a, columns_a)
-                looked = [[0]*cols]*rows
+                looked = [[0 for c in range(rows)] for r in range(cols)]
                 looked [i][j] = 1
                 flag = 0
                 while len(list) != 0:
